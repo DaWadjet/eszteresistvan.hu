@@ -107,7 +107,7 @@ const ApplicationForm: FC = () => {
           name="otherGuests"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>További érkezők teljes neve*</FormLabel>
+              <FormLabel>További érkezők teljes neve</FormLabel>
               <FormControl>
                 <Textarea {...field} rows={3} />
               </FormControl>
