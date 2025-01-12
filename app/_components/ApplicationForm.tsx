@@ -139,6 +139,7 @@ const ApplicationForm: FC = () => {
                 Van bármi más, amit érdemesnek tartasz arra, hogy megoszd
                 velünk?
               </FormLabel>
+              `
               <FormControl>
                 <Textarea {...field} rows={3} />
               </FormControl>
