@@ -32,8 +32,18 @@ export const addApplicationToDb = async (
 
 export const getApplications = () => {
   if (!fs.existsSync(dbPath)) {
-    //create the file if it doesn't exist
-    fs.writeFileSync(dbPath, JSON.stringify({ applications: [] }));
+    fs.writeFile(
+      dbPath,
+      JSON.stringify({ applications: [] }),
+      { flag: "a+" },
+      (err) => {
+        if (err) {
+          console.error(err);
+        }
+        return [];
+      }
+    );
+    return [];
   }
   const data = fs.readFileSync(dbPath, "utf-8");
   return JSON.parse(data).applications as WeddingApplicationEntry[];
