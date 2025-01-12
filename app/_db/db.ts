@@ -5,40 +5,35 @@ import {
 import fs from "fs";
 import "server-only";
 
-const dbPath = "./app/_db/applicants.json";
+const dbPath = "./app/_db/applications.json";
 
-export const addApplicationToDb = async (
-  formData: WeddingApplicationFormData
-) => {
-  const existingApplications = getApplications();
-  existingApplications.push({
-    ...formData,
-    submittedApplicationAt: new Date().toISOString(),
-  });
+const persistApplications = (applications: WeddingApplicationEntry[]) =>
   fs.writeFileSync(
     dbPath,
     JSON.stringify(
       {
-        applications: existingApplications,
+        applications,
       },
       null,
       2
     )
   );
+
+export const addApplicationToDb = async (
+  formData: WeddingApplicationFormData
+) => {
+  const applications = getApplications();
+  applications.push({
+    ...formData,
+    submittedApplicationAt: new Date().toISOString(),
+  });
+  persistApplications(applications);
 };
 
 export const getApplications = () => {
   if (!fs.existsSync(dbPath)) {
-    fs.writeFileSync(
-      dbPath,
-      JSON.stringify(
-        {
-          applications: [],
-        },
-        null,
-        2
-      )
-    );
+    //create the file if it doesn't exist
+    fs.writeFileSync(dbPath, JSON.stringify({ applications: [] }));
   }
   const data = fs.readFileSync(dbPath, "utf-8");
   return JSON.parse(data).applications as WeddingApplicationEntry[];

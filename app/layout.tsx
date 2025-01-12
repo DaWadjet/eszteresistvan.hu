@@ -1,3 +1,4 @@
+import PHProvider from "@/app/_components/PHProvider";
 import type { Metadata } from "next";
 import { Toaster } from "sonner";
 import "./globals.css";
@@ -16,8 +17,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="font-playfair antialiased mx-auto container p-4">
-        <main>{children}</main>
-        <Toaster />
+        <PHProvider>
+          <main>{children}</main>
+          <Toaster />
+        </PHProvider>
       </body>
     </html>
   );
