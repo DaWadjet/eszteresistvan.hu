@@ -37,7 +37,7 @@ const submitApplication = async (formData: WeddingApplicationFormData) => {
         to:
           isDev && loggingEmail
             ? [loggingEmail]
-            : [formData.applicantEmail, loggingEmail].filter(Boolean),
+            : [formData.email, loggingEmail].filter(Boolean),
         bcc: [loggingEmail].filter(Boolean),
         subject: "Visszaigazolás a jelentkezésedről",
         react: AffirmationEmailTemplate(formData),

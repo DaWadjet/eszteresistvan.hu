@@ -26,9 +26,9 @@ const ApplicationForm: FC = () => {
   const applicantForm = useForm<WeddingApplicationFormData>({
     resolver: zodResolver(weddingApplicationSchema),
     defaultValues: {
-      applicantFullName: "",
-      applicantEmail: "",
-      applicantPhoneNumber: "",
+      fullName: "",
+      email: "",
+      phoneNumber: "",
       otherGuests: "",
       foodRestrictions: "",
       comment: "",
@@ -65,7 +65,7 @@ const ApplicationForm: FC = () => {
         </p>
         <FormField
           control={applicantForm.control}
-          name="applicantFullName"
+          name="fullName"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Kitöltő teljes neve*</FormLabel>
@@ -78,7 +78,7 @@ const ApplicationForm: FC = () => {
         />
         <FormField
           control={applicantForm.control}
-          name="applicantPhoneNumber"
+          name="phoneNumber"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Kitöltő telefonszáma*</FormLabel>
@@ -91,7 +91,7 @@ const ApplicationForm: FC = () => {
         />
         <FormField
           control={applicantForm.control}
-          name="applicantEmail"
+          name="email"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Kitöltő e-mail címe*</FormLabel>

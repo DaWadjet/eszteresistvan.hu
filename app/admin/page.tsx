@@ -14,7 +14,7 @@ export default async function AdminPage() {
       <ul>
         {applications.map((application) => (
           <li key={application.submittedApplicationAt}>
-            {application.applicantFullName}
+            {application.fullName}
           </li>
         ))}
       </ul>
