@@ -16,7 +16,7 @@ export default function GlobalError({
   return (
     <html>
       <body>
-        <NextError statusCode={0} />
+        <NextError statusCode={0} title="Hiba történt" />
       </body>
     </html>
   );
