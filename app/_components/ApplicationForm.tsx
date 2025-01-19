@@ -10,7 +10,7 @@ import {
 } from "@/app/_components/ui/form";
 import { Input } from "@/app/_components/ui/input";
 import { Textarea } from "@/app/_components/ui/textarea";
-import submitApplication from "@/app/_db/submitApplication";
+
 import {
   WeddingApplicationFormData,
   weddingApplicationSchema,
@@ -20,6 +20,18 @@ import { Loader2Icon } from "lucide-react";
 import { FC, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
+
+const submitApplication = async (application: WeddingApplicationFormData) => {
+  const response = await fetch("/api/submit-application", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    cache: "no-store",
+    body: JSON.stringify(application),
+  });
+  return (await response.json()) as { isSuccess: boolean };
+};
 
 const ApplicationForm: FC = () => {
   const [isPending, startTransition] = useTransition();
