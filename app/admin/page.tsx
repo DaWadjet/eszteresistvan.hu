@@ -1,4 +1,4 @@
-import { getApplications } from "@/app/_db/db";
+import { getApplications } from "@/app/_db/applications";
 import ExportPossibilities from "@/app/admin/ExportPossibilities";
 import Link from "next/link";
 
@@ -13,9 +13,7 @@ export default async function AdminPage() {
       <h1>Admin Page</h1>
       <ul>
         {applications.map((application) => (
-          <li key={application.submittedApplicationAt}>
-            {application.fullName}
-          </li>
+          <li key={application.id}>{application.fullName}</li>
         ))}
       </ul>
       <ExportPossibilities applications={applications} />

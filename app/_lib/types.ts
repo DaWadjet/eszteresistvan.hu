@@ -13,5 +13,7 @@ export type WeddingApplicationFormData = z.infer<
   typeof weddingApplicationSchema
 >;
 export type WeddingApplicationEntry = WeddingApplicationFormData & {
-  submittedApplicationAt: string;
+  submittedApplicationAt?: Date;
+  isFromWebsite?: boolean;
+  isTestEntry?: boolean;
 };

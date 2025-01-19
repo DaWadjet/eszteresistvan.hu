@@ -1,4 +1,4 @@
-import { submitApplication } from "@/app/_db/db";
+import { submitApplication } from "@/app/_db/actions";
 import { WeddingApplicationFormData } from "@/app/_lib/types";
 import { NextRequest, NextResponse } from "next/server";
 
