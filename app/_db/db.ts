@@ -75,7 +75,7 @@ export const submitApplication = async (
   formData: WeddingApplicationFormData
 ) => {
   try {
-    addApplicationToDb(formData);
+    // addApplicationToDb(formData);
 
     if (isDev) {
       return {
