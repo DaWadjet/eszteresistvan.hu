@@ -1,6 +1,7 @@
 import ApplicationForm from "@/app/_components/ApplicationForm";
 import FAQ from "@/app/_components/FAQ";
 import ImageOverlay from "@/app/_components/ImageOverlay";
+import MainImage from "@/app/_components/MainImage";
 
 import Section from "@/app/_components/Section";
 import { Separator } from "@radix-ui/react-separator";
@@ -12,21 +13,12 @@ import {
   Heart,
   MapPinned,
 } from "lucide-react";
-import Image from "next/image";
 
 export default function Home() {
   return (
     <div className="flex flex-col font-playfair">
-      <div className="w-full h-screen sm:h-[450px] relative">
-        <Image
-          src="/cover.jpg"
-          alt="Eszter és István esküvője"
-          quality={100}
-          sizes="100vw"
-          priority
-          fill
-          className="object-cover object-[center_+45%]"
-        />
+      <div className="w-full h-screen sm:h-[450px] relative overflow-clip">
+        <MainImage />
         <ImageOverlay />
       </div>
 
