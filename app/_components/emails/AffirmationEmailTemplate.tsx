@@ -6,8 +6,8 @@ const AffirmationEmailTemplate = (props: WeddingApplicationFormData) => (
     <br />
 
     <p>
-      Jelentkezésed megkaptuk, köszönjük hogy Velünk tartasz a Nagy Napunkon! A
-      weboldalt további hasznos információkkal fogjuk frissíteni, köszönjük ha
+      Jelentkezésed megkaptuk, köszönjük, hogy Velünk tartasz a Nagy Napunkon! A
+      weboldalt további hasznos információkkal fogjuk frissíteni, köszönjük, ha
       követed. Kérdés esetén keress bennünket bizalommal!
       <br />
       Már várjuk, hogy együtt ünnepeljünk!
