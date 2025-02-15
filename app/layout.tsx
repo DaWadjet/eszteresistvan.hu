@@ -1,4 +1,3 @@
-import { getRemainingTimeInSeconds } from "@/app/_components/consts";
 import PHProvider from "@/app/_components/PHProvider";
 import type { Metadata } from "next";
 import { Libre_Baskerville, Playfair_Display } from "next/font/google";
@@ -7,12 +6,9 @@ import { Toaster } from "sonner";
 import "./globals.css";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const remainingDays = Math.floor(getRemainingTimeInSeconds() / 86400);
   return {
     title: "Eszter & István házasodik",
-    description: remainingDays
-      ? `Már csak ${remainingDays} nap van hátra!`
-      : "Elérkezett a nagy nap!",
+    description: "2025. október 10., Neszmély",
     metadataBase: new URL(`https://${(await headers()).get("host")}`),
   };
 }
