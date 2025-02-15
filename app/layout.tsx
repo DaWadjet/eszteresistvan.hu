@@ -1,14 +1,21 @@
+import { getRemainingTimeInSeconds } from "@/app/_components/consts";
 import PHProvider from "@/app/_components/PHProvider";
 import type { Metadata } from "next";
 import { Libre_Baskerville, Playfair_Display } from "next/font/google";
+import { headers } from "next/headers";
 import { Toaster } from "sonner";
 import "./globals.css";
 
-export const metadata: Metadata = {
-  title: "Eszter & István házasodik",
-  description:
-    "Eszter és István esküvőjével kapcsolatos információk összegző weboldala",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const remainingDays = Math.floor(getRemainingTimeInSeconds() / 86400);
+  return {
+    title: "Eszter & István házasodik",
+    description: remainingDays
+      ? `Már csak ${remainingDays} nap van hátra!`
+      : "Elérkezett a nagy nap!",
+    metadataBase: new URL(`https://${(await headers()).get("host")}`),
+  };
+}
 
 const playfair = Playfair_Display({
   display: "swap",
@@ -23,8 +30,6 @@ const libre = Libre_Baskerville({
   subsets: ["latin"],
   weight: ["400", "700"],
 });
-
-console.log(playfair.style.fontFamily, libre.style.fontFamily);
 
 export default function RootLayout({
   children,

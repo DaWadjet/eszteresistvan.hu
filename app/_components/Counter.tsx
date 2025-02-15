@@ -1,12 +1,11 @@
 "use client";
+import { getRemainingTimeInSeconds } from "@/app/_components/consts";
 import { ComponentProps, FC, useEffect, useMemo, useState } from "react";
 import SlotCounter from "react-slot-counter";
 
-const weddingDate = new Date("2025-10-10T16:00:00");
-
 const Counter: FC = () => {
   const [remainingTimeInSeconds, setRemainingTime] = useState(
-    Math.floor((weddingDate.getTime() - Date.now()) / 1000)
+    getRemainingTimeInSeconds
   );
 
   useEffect(() => {
